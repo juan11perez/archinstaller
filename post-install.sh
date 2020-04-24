@@ -45,7 +45,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m -g users -G wheel -s /bin/bash juan
 # useradd -m -G wheel,power,iput,storage,uucp,network -s /usr/bin/zsh krushn
 sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-echo "Set password for new user krushn"
+echo "Set password for new user juan"
 passwd juan
 
 # Setup display manager
