@@ -62,18 +62,17 @@ systemctl enable NetworkManager.service
 # Enable ssh
 systemctl enable sshd.service
 
-# Install yay
+# Install yay & pamac
 cd /home/juan
-git clone https://aur.archlinux.org/yay.git && chmod -R 777 yay && cd yay && makepkg -si --noconfirm
-# Install pamac
-yay -S pamac-aur --noconfirm
+git clone https://aur.archlinux.org/yay.git && chmod -R 777 yay && cd yay
+# makepkg -si --noconfirm && yay -S pamac-aur --noconfirm
 
 # Install xfce
 pacman -S xfce4 lightdm lightdm-gtk-greeter gvfs gvfs-smb sshfs system-config-printer cups-pdf cups-pk-helper print-manager \
 smbclient variety screenfetch chromium breeze-gtk kde-gtk-config ark libreoffice-fresh libreoffice-fresh-en-gb \
 libreoffice-fresh-es gwenview vlc gimp network-manager-applet libmythes mythes-en mythes-es ttf-liberation hunspell \
-hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts wget curl thunderbird user-manager kdeconnect sddm barrier \
-gparted htop xfce4-taskmanager gnome-disk-utility --noconfirm
+hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts wget curl thunderbird user-manager kdeconnect sddm gparted htop \
+xfce4-taskmanager gnome-disk-utility --noconfirm
 
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
