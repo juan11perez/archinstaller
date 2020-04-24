@@ -80,7 +80,7 @@ mount /dev/${disk}3 /mnt/home
 # Install Arch Linux
 echo "Starting install.."
 echo "Installing Arch Linux" 
-pacstrap -i /mnt base linux linux-firmware sudo nano  --noconfirm
+pacstrap -i /mnt base base-devel linux linux-firmware sudo nano  --noconfirm
 # pacstrap /mnt base base-devel zsh grml-zsh-config grub os-prober intel-ucode efibootmgr dosfstools freetype2 fuse2 mtools iw wpa_supplicant dialog xorg xorg-server xorg-xinit mesa xf86-video-intel plasma konsole dolphin
 
 # Generate fstab
