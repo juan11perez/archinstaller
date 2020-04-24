@@ -5,6 +5,9 @@
 
 echo "Arch Configurator"
 
+# Disk variable
+disk=vda
+
 # Install swap file
 fallocate -l 3G /swapfile
 chmod 600 /swapfile
@@ -37,7 +40,7 @@ pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg
 
 # Install bootloader
 mkdir /boot/efi
-mount /dev/vda1 /boot/efi
+mount /dev/$disk1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 # grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
