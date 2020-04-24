@@ -35,7 +35,7 @@ mkinitcpio -P
 passwd
 
 # Install additional packages
-pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server --noconfirm
+pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git --noconfirm
 
 # Install bootloader
 mkdir /boot/efi
@@ -57,5 +57,10 @@ systemctl enable NetworkManager.service
 
 # Enable ssh
 systemctl enable sshd.service
+
+# Install yay
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
+# Install pamac
+yay -S pamac-aur --noconfirm
 
 echo "Configuration done. You can now exit chroot."
