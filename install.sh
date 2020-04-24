@@ -75,7 +75,7 @@ mount /dev/vda3 /mnt/home
 # Install Arch Linux
 echo "Starting install.."
 echo "Installing Arch Linux, KDE with Konsole and Dolphin and GRUB2 as bootloader" 
-pacstrap -i --noconfirm /mnt base linux linux-firmware sudo nano openssh grub efibootmgr
+pacstrap -i /mnt base linux linux-firmware sudo nano openssh grub efibootmgr
 # pacstrap /mnt base base-devel zsh grml-zsh-config grub os-prober intel-ucode efibootmgr dosfstools freetype2 fuse2 mtools iw wpa_supplicant dialog xorg xorg-server xorg-xinit mesa xf86-video-intel plasma konsole dolphin
 
 # Generate fstab
