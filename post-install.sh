@@ -49,7 +49,7 @@ passwd juan
 # systemctl enable sddm.service
 
 # Install additional packages
-pacman -S --noconfirm networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server
+pacman -S networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server --noconfirm
 
 
 # Enable services
