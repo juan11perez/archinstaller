@@ -7,6 +7,9 @@ echo "Arch Configurator"
 # Disk variable
 disk=vda
 
+# uncoment to mount unraid share
+echo 'documents /home/juan/Documents 9p trans=virtio,version=9p2000.L,_netdev,rw 0 0' >> /etc/fstab
+
 # Install swap file
 fallocate -l 2G /swapfile
 chmod 600 /swapfile
@@ -35,7 +38,7 @@ mkinitcpio -P
 passwd
 
 # Install additional packages
-pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git --noconfirm
+pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git nvidia-lts nvidia xf86-video-amdgpu --noconfirm
 
 # Install bootloader
 mkdir /boot/efi
@@ -63,5 +66,11 @@ systemctl enable sshd.service
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
 # Install pamac
 yay -S pamac-aur --noconfirm
+
+# Install xfce
+pacman -S xfce4 lightdm lightdm-gtk-greeter gvfs gvfs-smb sshfs system-config-printer cups-pdf cups-pk-helper print-manager smbclient --noconfirm
+echo "exec startxfce4" > ~/.xinitrc
+systemctl enable lightdm
+systemctl enable org.cups.cupsd.service
 
 echo "Configuration done. You can now exit chroot."
