@@ -5,6 +5,9 @@
 
 echo "Arch Installer"
 
+# Disk variable
+${TGTDEV}=vda
+
 # Set up network connection
 read -p 'Are you connected to internet? [y/N]: ' neton
 if ! [ $neton = 'y' ] && ! [ $neton = 'Y' ]
@@ -32,7 +35,7 @@ fi
 
 # to create the partitions programatically (rather than manually)
 # https://superuser.com/a/984637
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/vda
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/${TGTDEV}
   o # clear the in memory partition table
   n # new partition
   p # primary partition
@@ -57,9 +60,9 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/vda
 EOF
 
 # Format the partitions
-mkfs.fat -F32 /dev/vda1
-mkfs.ext4 /dev/vda2
-mkfs.ext4 /dev/vda3
+mkfs.fat -F32 /dev/${TGTDEV}1
+mkfs.ext4 /dev/${TGTDEV}2
+mkfs.ext4 /dev/${TGTDEV}3
 
 
 # Set up time
@@ -72,10 +75,10 @@ timedatectl set-ntp true
 
 # Mount the partitions
 mkdir -pv /mnt/boot/efi
-mount /dev/vda1 /mnt/boot/efi
-mount /dev/vda2 /mnt
+mount /dev/${TGTDEV}1 /mnt/boot/efi
+mount /dev/${TGTDEV}2 /mnt
 mkdir /mnt/home
-mount /dev/vda3 /mnt/home
+mount /dev/${TGTDEV}3 /mnt/home
 
 # Install Arch Linux
 echo "Starting install.."
@@ -87,11 +90,8 @@ pacstrap -i /mnt base linux linux-firmware sudo nano  --noconfirm
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Copy post-install system cinfiguration script to new /root
-cp *.sh /mnt/ &>/dev/null
-# arch-chroot /mnt /bin/bash
-# arch-chroot /mnt /scripts/post-install.sh
-# cp -rfv post-install.sh /mnt/root
-# chmod a+x /mnt/root/post-install.sh
+cp -rfv post-install.sh /mnt/root
+chmod a+x /mnt/root/post-install.sh
 
 # Chroot into new system
 echo "After chrooting into newly installed OS, please run the post-install.sh by executing ./post-install.sh"
