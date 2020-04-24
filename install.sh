@@ -82,14 +82,17 @@ pacstrap -i /mnt base linux linux-firmware sudo nano openssh grub efibootmgr --n
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Copy post-install system cinfiguration script to new /root
-cp -rfv post-install.sh /mnt/root
-chmod a+x /mnt/root/post-install.sh
+mkdir /mnt/scripts
+cp *.sh /mnt/scripts &>/dev/null
+arch-chroot /mnt /scripts/post-install.sh
+# cp -rfv post-install.sh /mnt/root
+# chmod a+x /mnt/root/post-install.sh
 
 # Chroot into new system
 echo "After chrooting into newly installed OS, please run the post-install.sh by executing ./post-install.sh"
 echo "Press any key to chroot..."
-read tmpvar
-arch-chroot /mnt /bin/bash
+# read tmpvar
+# arch-chroot /mnt /bin/bash
 
 # Finish
 echo "If post-install.sh was run succesfully, you will now have a fully working bootable Arch Linux system installed."
