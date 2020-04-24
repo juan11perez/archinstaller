@@ -32,6 +32,9 @@ mkinitcpio -P
 # Set root password
 passwd
 
+# Install additional packages
+pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server --noconfirm
+
 # Install bootloader
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -47,10 +50,6 @@ passwd juan
 
 # Setup display manager
 # systemctl enable sddm.service
-
-# Install additional packages
-pacman -S networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server --noconfirm
-
 
 # Enable services
 systemctl enable NetworkManager.service
