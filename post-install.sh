@@ -63,6 +63,7 @@ systemctl enable NetworkManager.service
 systemctl enable sshd.service
 
 # Install yay
+cd /home/juan
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
 # Install pamac
 yay -S pamac-aur --noconfirm
