@@ -13,6 +13,11 @@ then
     exit
 fi
 
+# Install closest mirrors 
+pacman -Sy  reflector --noconfirm
+reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+# reflector -c “India” -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist 
+
 # Filesystem mount warning
 echo "This script will create and format the partitions as follows:"
 echo "/dev/vda1 - 512Mib will be mounted as /boot/efi"
