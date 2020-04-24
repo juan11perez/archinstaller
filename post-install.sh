@@ -1,7 +1,6 @@
 #! /bin/bash
 
-# This is Configuration script of Krushn's Arch Linux Installation Package.
-# Visit krushndayshmookh.github.io/krushn-arch for instructions.
+# This is Arch Linux Installation Package.
 
 echo "Arch Configurator"
 
@@ -9,7 +8,7 @@ echo "Arch Configurator"
 disk=vda
 
 # Install swap file
-fallocate -l 3G /swapfile
+fallocate -l 2G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
@@ -43,12 +42,9 @@ mkdir /boot/efi
 mount /dev/${disk}1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
 grub-mkconfig -o /boot/grub/grub.cfg
-# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
-# grub-mkconfig -o /boot/grub/grub.cfg
 
 # Create new user
 useradd -m -g users -G wheel -s /bin/bash juan
-# useradd -m -G wheel,power,iput,storage,uucp,network -s /usr/bin/zsh krushn
 sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
 echo "Set password for new user juan"
 passwd juan
