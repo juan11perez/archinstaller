@@ -71,8 +71,6 @@ timedatectl set-ntp true
 # pacman-key --refresh-keys
 
 # Mount the partitions
-mkdir -pv /mnt/boot/efi
-mount /dev/vda1 /mnt/boot/efi
 mount /dev/vda2 /mnt
 mkdir /mnt/home
 mount /dev/vda3 /mnt/home
@@ -87,8 +85,8 @@ pacstrap -i /mnt base linux linux-firmware sudo nano  --noconfirm
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Copy post-install system cinfiguration script to new /root
-cp -rfv post-install.sh /mnt/root
-chmod a+x /mnt/root/post-install.sh
+cp -rfv post-install.sh /mnt
+chmod a+x /mnt/post-install.sh
 
 # Chroot into new system
 echo "After chrooting into newly installed OS, please run the post-install.sh by executing ./post-install.sh"
