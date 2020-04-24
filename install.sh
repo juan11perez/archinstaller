@@ -61,9 +61,9 @@ mkfs.ext4 /dev/vda3
 timedatectl set-ntp true
 
 # Initate pacman keyring
-# pacman-key --init
-# pacman-key --populate archlinux
-# pacman-key --refresh-keys
+pacman-key --init
+pacman-key --populate archlinux
+pacman-key --refresh-keys
 
 # Mount the partitions
 mkdir -pv /mnt/boot/efi
@@ -75,16 +75,18 @@ mount /dev/vda3 /mnt/home
 # Install Arch Linux
 echo "Starting install.."
 echo "Installing Arch Linux" 
-pacstrap -i /mnt base linux linux-firmware sudo nano openssh grub efibootmgr --noconfirm
+pacstrap -i --noconfirm /mnt base linux linux-firmware sudo nano
 # pacstrap /mnt base base-devel zsh grml-zsh-config grub os-prober intel-ucode efibootmgr dosfstools freetype2 fuse2 mtools iw wpa_supplicant dialog xorg xorg-server xorg-xinit mesa xf86-video-intel plasma konsole dolphin
 
 # Generate fstab
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Copy post-install system cinfiguration script to new /root
 mkdir /mnt/scripts
 cp *.sh /mnt/scripts &>/dev/null
-arch-chroot /mnt /scripts/post-install.sh
+arch-chroot /mnt /bin/bash
+cd /scripts
+# arch-chroot /mnt /scripts/post-install.sh
 # cp -rfv post-install.sh /mnt/root
 # chmod a+x /mnt/root/post-install.sh
 
