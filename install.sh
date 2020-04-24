@@ -1,9 +1,11 @@
 #! /bin/bash
 
-# This is Krushn's Arch Linux Installation Script.
-# Visit krushndayshmookh.github.io/krushn-arch for instructions.
+# This is Arch Linux Installation Script.
 
 echo "Arch Installer"
+
+# Disk variable
+disk=vda
 
 # Set up network connection
 read -p 'Are you connected to internet? [y/N]: ' neton
@@ -32,7 +34,7 @@ fi
 
 # to create the partitions programatically (rather than manually)
 # https://superuser.com/a/984637
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/vda
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/$disk
   o # clear the in memory partition table
   n # new partition
   p # primary partition
@@ -57,9 +59,9 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/vda
 EOF
 
 # Format the partitions
-mkfs.fat -F32 /dev/vda1
-mkfs.ext4 /dev/vda2
-mkfs.ext4 /dev/vda3
+mkfs.fat -F32 /dev/$disk1
+mkfs.ext4 /dev/$disk2
+mkfs.ext4 /dev/$disk3
 
 
 # Set up time
@@ -71,9 +73,9 @@ timedatectl set-ntp true
 # pacman-key --refresh-keys
 
 # Mount the partitions
-mount /dev/vda2 /mnt
+mount /dev/$disk2 /mnt
 mkdir /mnt/home
-mount /dev/vda3 /mnt/home
+mount /dev/$disk3 /mnt/home
 
 # Install Arch Linux
 echo "Starting install.."
