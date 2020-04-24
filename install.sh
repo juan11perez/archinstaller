@@ -61,9 +61,9 @@ mkfs.ext4 /dev/vda3
 timedatectl set-ntp true
 
 # Initate pacman keyring
-pacman-key --init
-pacman-key --populate archlinux
-pacman-key --refresh-keys
+# pacman-key --init
+# pacman-key --populate archlinux
+# pacman-key --refresh-keys
 
 # Mount the partitions
 mkdir -pv /mnt/boot/efi
