@@ -1,7 +1,6 @@
 #! /bin/bash
 
-# This is Arch Linux Installation Script.
-
+# Arch Linux Installation Script.
 echo "Arch Installer"
 
 # Disk variable
@@ -63,7 +62,6 @@ mkfs.fat -F32 /dev/${disk}1
 mkfs.ext4 /dev/${disk}2
 mkfs.ext4 /dev/${disk}3
 
-
 # Set up time
 timedatectl set-ntp true
 
@@ -81,7 +79,6 @@ mount /dev/${disk}3 /mnt/home
 echo "Starting install.."
 echo "Installing Arch Linux" 
 pacstrap -i /mnt base base-devel linux linux-firmware sudo nano  --noconfirm
-# pacstrap /mnt base base-devel zsh grml-zsh-config grub os-prober intel-ucode efibootmgr dosfstools freetype2 fuse2 mtools iw wpa_supplicant dialog xorg xorg-server xorg-xinit mesa xf86-video-intel plasma konsole dolphin
 
 # Generate fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
