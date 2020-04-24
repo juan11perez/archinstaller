@@ -32,29 +32,29 @@ fi
 
 # to create the partitions programatically (rather than manually)
 # https://superuser.com/a/984637
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk ${TGTDEV}
-  o # clear the in memory partition table
-  n # new partition
-  p # primary partition
-  1 # partition number 1
-    # default - start at beginning of disk 
-  +512M # 512 MB boot parttion
-  n # new partition
-  p # primary partition
-  2 # partion number 2
-    # default, start immediately after preceding partition
-  +10G # 10 GB root parttion
-  n # new partition
-  p # primary partition
-  3 # partion number 3
-    # default, start immediately after preceding partition
-    # default, extend partition to end of disk
-  a # make a partition bootable
-  1 # bootable partition is partition 1 -- /dev/vda1
-  p # print the in-memory partition table
-  w # write the partition table
-  q # and we're done
-EOF
+(
+echo  o # clear the in memory partition table
+echo  n # new partition
+echo  p # primary partition
+echo  1 # partition number 1
+echo    # default - start at beginning of disk 
+echo  +512M # 512 MB boot parttion
+echo  n # new partition
+echo  p # primary partition
+echo  2 # partion number 2
+echo    # default, start immediately after preceding partition
+echo  +10G # 10 GB root parttion
+echo  n # new partition
+echo  p # primary partition
+echo  3 # partion number 3
+echo    # default, start immediately after preceding partition
+echo    # default, extend partition to end of disk
+echo  a # make a partition bootable
+echo  1 # bootable partition is partition 1 -- /dev/vda1
+echo  p # print the in-memory partition table
+echo  w # write the partition table
+echo  q # and we're done
+) | sudo fdisk
 
 # Format the partitions
 mkfs.fat -F32 /dev/vda1
