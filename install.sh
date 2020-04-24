@@ -73,9 +73,9 @@ timedatectl set-ntp true
 # pacman-key --refresh-keys
 
 # Mount the partitions
-mount /dev/$disk2 /mnt
+mount /dev/${disk}2 /mnt
 mkdir /mnt/home
-mount /dev/$disk3 /mnt/home
+mount /dev/${disk}3 /mnt/home
 
 # Install Arch Linux
 echo "Starting install.."
