@@ -27,7 +27,7 @@ echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 
 # Set hostname
 echo "archlinux" >> /etc/hostname
-echo "127.0.1.1 dayshmookh.localdomain archlinux" >> /etc/hosts
+echo "127.0.1.1 localhost.localdomain archlinux" >> /etc/hosts
 
 # Generate initramfs
 mkinitcpio -P
