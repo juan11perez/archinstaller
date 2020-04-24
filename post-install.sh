@@ -75,7 +75,7 @@ hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts wget curl thunderbird 
 xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings --noconfirm
 
 # Remove libreoffice logo
-sed -i 's/logo=1/logo=0/g' /etc/libreoffice/sofficerc
+sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
 
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
