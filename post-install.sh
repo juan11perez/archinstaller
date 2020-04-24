@@ -48,6 +48,10 @@ passwd juan
 # Setup display manager
 # systemctl enable sddm.service
 
+# Install additional packages
+pacman -S --noconfirm networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server
+
+
 # Enable services
 systemctl enable NetworkManager.service
 
