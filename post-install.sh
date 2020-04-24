@@ -69,7 +69,12 @@ git clone https://aur.archlinux.org/yay.git && chmod -R 777 yay && cd yay && mak
 yay -S pamac-aur --noconfirm
 
 # Install xfce
-pacman -S xfce4 lightdm lightdm-gtk-greeter gvfs gvfs-smb sshfs system-config-printer cups-pdf cups-pk-helper print-manager smbclient variety screenfetch --noconfirm
+pacman -S xfce4 lightdm lightdm-gtk-greeter gvfs gvfs-smb sshfs system-config-printer cups-pdf cups-pk-helper print-manager \
+smbclient variety screenfetch chromium breeze-gtk kde-gtk-config ark libreoffice-fresh libreoffice-fresh-en-gb \
+libreoffice-fresh-es gwenview vlc gimp network-manager-applet libmythes mythes-en mythes-es ttf-liberation hunspell \
+hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts wget curl thunderbird user-manager kdeconnect sddm barrier \
+gparted htop xfce4-taskmanager gnome-disk-utility --noconfirm
+
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
 systemctl enable org.cups.cupsd.service
