@@ -87,8 +87,8 @@ pacstrap -i /mnt base base-devel linux linux-firmware sudo nano  --noconfirm
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Copy post-install system cinfiguration script to new /root
-cp -rfv *.sh /mnt/tmp
-chmod a+x /mnt/tmp/*.sh
+cp -rfv post-install.sh /mnt
+chmod a+x /mnt/post-install.sh
 
 # Chroot into new system
 echo "After chrooting into newly installed OS, please run the post-install.sh by executing ./post-install.sh"
