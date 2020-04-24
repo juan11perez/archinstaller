@@ -80,17 +80,15 @@ mount /dev/vda3 /mnt/home
 # Install Arch Linux
 echo "Starting install.."
 echo "Installing Arch Linux" 
-pacstrap -i --noconfirm /mnt base linux linux-firmware sudo nano
+pacstrap -i /mnt base linux linux-firmware sudo nano  --noconfirm
 # pacstrap /mnt base base-devel zsh grml-zsh-config grub os-prober intel-ucode efibootmgr dosfstools freetype2 fuse2 mtools iw wpa_supplicant dialog xorg xorg-server xorg-xinit mesa xf86-video-intel plasma konsole dolphin
 
 # Generate fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Copy post-install system cinfiguration script to new /root
-mkdir /mnt/scripts
-cp *.sh /mnt/scripts &>/dev/null
+cp *.sh /mnt/ &>/dev/null
 arch-chroot /mnt /bin/bash
-cd /scripts
 # arch-chroot /mnt /scripts/post-install.sh
 # cp -rfv post-install.sh /mnt/root
 # chmod a+x /mnt/root/post-install.sh
