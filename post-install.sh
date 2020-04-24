@@ -1,7 +1,6 @@
 #! /bin/bash
 
-# This is Arch Linux Installation Package.
-
+# Arch Linux Installation Package.
 echo "Arch Configurator"
 
 # Disk variable
@@ -38,7 +37,8 @@ mkinitcpio -P
 passwd
 
 # Install additional packages
-pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git nvidia-lts nvidia xf86-video-amdgpu --noconfirm
+pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git nvidia-lts \
+nvidia xf86-video-amdgpu --noconfirm
 
 # Install bootloader
 mkdir /boot/efi
@@ -52,9 +52,6 @@ useradd -m -g users -G wheel -s /bin/bash juan
 sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
 echo "Set password for new user juan"
 passwd juan
-
-# Setup display manager
-# systemctl enable sddm.service
 
 # Enable services
 systemctl enable NetworkManager.service
