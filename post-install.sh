@@ -41,6 +41,7 @@ pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg
 mkdir /boot/efi
 mount /dev/${disk}1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Create new user
