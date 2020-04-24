@@ -36,6 +36,12 @@ mkinitcpio -P
 # Set root password
 passwd
 
+# Create new user
+useradd -m -g users -G wheel -s /bin/bash juan
+sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+echo "Set password for new user juan"
+passwd juan
+
 # Install additional packages
 pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git nvidia-lts \
 nvidia xf86-video-amdgpu --noconfirm
@@ -46,12 +52,6 @@ mount /dev/${disk}1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
-
-# Create new user
-useradd -m -g users -G wheel -s /bin/bash juan
-sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-echo "Set password for new user juan"
-passwd juan
 
 # Enable services
 systemctl enable NetworkManager.service
