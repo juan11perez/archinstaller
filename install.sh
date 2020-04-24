@@ -59,9 +59,9 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/$disk
 EOF
 
 # Format the partitions
-mkfs.fat -F32 /dev/$disk1
-mkfs.ext4 /dev/$disk2
-mkfs.ext4 /dev/$disk3
+mkfs.fat -F32 /dev/${disk}1
+mkfs.ext4 /dev/${disk}2
+mkfs.ext4 /dev/${disk}3
 
 
 # Set up time
@@ -73,9 +73,9 @@ timedatectl set-ntp true
 # pacman-key --refresh-keys
 
 # Mount the partitions
-mount /dev/vda2 /mnt
+mount /dev/${disk}2 /mnt
 mkdir /mnt/home
-mount /dev/vda3 /mnt/home
+mount /dev/${disk}3 /mnt/home
 
 # Install Arch Linux
 echo "Starting install.."
