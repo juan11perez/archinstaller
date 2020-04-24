@@ -68,7 +68,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
 yay -S pamac-aur --noconfirm
 
 # Install xfce
-pacman -S xfce4 lightdm lightdm-gtk-greeter gvfs gvfs-smb sshfs system-config-printer cups-pdf cups-pk-helper print-manager smbclient --noconfirm
+pacman -S xfce4 lightdm lightdm-gtk-greeter gvfs gvfs-smb sshfs system-config-printer cups-pdf cups-pk-helper print-manager smbclient variety screenfetch --noconfirm
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
 systemctl enable org.cups.cupsd.service
