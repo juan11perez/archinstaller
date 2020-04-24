@@ -55,6 +55,6 @@ passwd juan
 systemctl enable NetworkManager.service
 
 # Enable ssh
-systemctl start sshd.service
+systemctl enable sshd.service
 
 echo "Configuration done. You can now exit chroot."
