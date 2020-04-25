@@ -71,11 +71,11 @@ libreoffice-fresh-es gwenview vlc gimp network-manager-applet libmythes mythes-e
 hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts wget curl thunderbird user-manager kdeconnect sddm gparted htop \
 xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings --noconfirm
 
-# Remove libreoffice logo
-sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
-
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
 systemctl enable org.cups.cupsd.service
+
+# Remove libreoffice logo
+sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
 
 echo "Configuration done. You can now exit chroot."
