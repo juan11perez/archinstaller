@@ -69,7 +69,7 @@ pacman -S xfce4 lightdm lightdm-gtk-greeter gvfs gvfs-smb sshfs system-config-pr
 smbclient variety screenfetch chromium breeze-gtk kde-gtk-config ark libreoffice-fresh libreoffice-fresh-en-gb \
 libreoffice-fresh-es gwenview vlc gimp network-manager-applet libmythes mythes-en mythes-es ttf-liberation hunspell \
 hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts  thunderbird user-manager kdeconnect sddm gparted htop \
-xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings --noconfirm
+xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskermenu-plugin plank --noconfirm
 
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
