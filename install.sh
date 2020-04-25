@@ -83,9 +83,11 @@ pacstrap -i /mnt base base-devel linux linux-firmware sudo nano  --noconfirm
 # Generate fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
-# Copy post-install system cinfiguration script to new /root
+# Copy post-install system configuration scripts to new /root
 cp -rfv post-install.sh /mnt
 chmod a+x /mnt/post-install.sh
+cp -rfv 300-install-themes-icons-cursors-conky-v1.sh /mnt
+chmod a+x /mnt/300-install-themes-icons-cursors-conky-v1.sh
 
 # Chroot into new system
 echo "After chrooting into newly installed OS, please run the post-install.sh by executing ./post-install.sh"
