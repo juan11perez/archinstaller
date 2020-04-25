@@ -73,7 +73,7 @@ xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskerm
 
 # Add themes - https://github.com/erikdubois/ArchXfce4
 git clone https://github.com/vinceliuice/McMojave-circle.git /tmp/
-./install.sh -a
+./tmp/install.sh -a
 #./300-install-themes-icons-cursors-conky-v1.sh
 
 echo "exec startxfce4" > ~/.xinitrc
