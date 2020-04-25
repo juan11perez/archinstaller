@@ -72,7 +72,9 @@ hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts  thunderbird user-mana
 xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskermenu-plugin plank --noconfirm
 
 # Add themes - https://github.com/erikdubois/ArchXfce4
-./300-install-themes-icons-cursors-conky-v1.sh
+git clone https://github.com/vinceliuice/McMojave-circle.git /tmp/
+./install.sh -a
+#./300-install-themes-icons-cursors-conky-v1.sh
 
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
