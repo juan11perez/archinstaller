@@ -37,7 +37,7 @@ mkinitcpio -P
 passwd
 
 # Create new user
-useradd -m -g users -G wheel -s /bin/bash juan
+useradd -m -g users -G wheel,power,iput,storage,network -s /bin/bash juan
 sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
 echo "Set password for new user juan"
 passwd juan
