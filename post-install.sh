@@ -44,7 +44,7 @@ passwd juan
 
 # Install additional packages
 pacman -S openssh grub efibootmgr networkmanager pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git nvidia-lts \
-nvidia xf86-video-amdgpu wget curl --noconfirm
+nvidia xf86-video-amdgpu wget curl qemu-guest-agent virtualbox-guest-utils --noconfirm
 
 # Install bootloader
 mkdir /boot/efi
