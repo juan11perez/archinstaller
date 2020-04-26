@@ -72,7 +72,7 @@ hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts  thunderbird user-mana
 xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskermenu-plugin plank --noconfirm
 
 # Install icons - https://github.com/erikdubois/ArchXfce4
-wget https://raw.githubusercontent.com/juan11perez/Arch-Installer/300-install-themes-icons-cursors-conky-v1.sh
+wget https://raw.githubusercontent.com/juan11perez/Arch-Installer/icons.sh
 ./300-install-themes-icons-cursors-conky-v1.sh
 
 echo "exec startxfce4" > ~/.xinitrc
