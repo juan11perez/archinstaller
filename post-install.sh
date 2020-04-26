@@ -73,6 +73,7 @@ xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskerm
 
 # Install icons - https://github.com/erikdubois/ArchXfce4
 wget https://raw.githubusercontent.com/juan11perez/Arch-Installer/master/icons.sh
+chmod +x icons.sh
 ./icons.sh
 
 echo "exec startxfce4" > ~/.xinitrc
