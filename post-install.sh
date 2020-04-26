@@ -71,6 +71,10 @@ libreoffice-fresh-es gwenview vlc gimp network-manager-applet libmythes mythes-e
 hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts  thunderbird user-manager kdeconnect sddm gparted htop \
 xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskermenu-plugin plank --noconfirm
 
+# Install icons - https://github.com/erikdubois/ArchXfce4
+wget https://raw.githubusercontent.com/juan11perez/Arch-Installer/300-install-themes-icons-cursors-conky-v1.sh
+./300-install-themes-icons-cursors-conky-v1.sh
+
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
 systemctl enable org.cups.cupsd.service
