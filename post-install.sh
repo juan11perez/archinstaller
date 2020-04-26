@@ -6,7 +6,7 @@ echo "Arch Configurator"
 # Disk variable
 disk=vda
 
-# uncoment to mount unraid share
+# Uncoment to mount unraid share
 echo 'documents /home/juan/Documents 9p trans=virtio,version=9p2000.L,_netdev,rw 0 0' >> /etc/fstab
 
 # Install swap file
@@ -81,5 +81,8 @@ systemctl enable org.cups.cupsd.service
 
 # Remove libreoffice logo
 sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
+
+# Auto-start screenfetch in terminal
+echo 'screenfetch' >> /home/juan/.bashrc
 
 echo "Configuration done. You can now exit chroot."
