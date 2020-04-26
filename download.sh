@@ -8,9 +8,9 @@ read which
 sed -i "s/disk=vda/disk=$which/g" /root/post-install.sh
 sed -i "s/disk=vda/disk=$which/g" /root/install.sh
 
-echo "enter new user name"
-read user
-sed -i "s/juan/$user/g" /root/post-install.sh
+# echo "enter new user name"
+# read user
+# sed -i "s/juan/$user/g" /root/post-install.sh
 
 chmod +x *.sh
 ./install.sh
