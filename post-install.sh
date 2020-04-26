@@ -73,7 +73,7 @@ xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskerm
 
 # Install icons - https://github.com/erikdubois/ArchXfce4
 wget https://raw.githubusercontent.com/juan11perez/Arch-Installer/icons.sh
-./300-install-themes-icons-cursors-conky-v1.sh
+./icons.sh
 
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
