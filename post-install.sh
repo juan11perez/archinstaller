@@ -95,7 +95,7 @@ systemctl enable org.cups.cupsd.service
 
 # Install yay & pamac
 cd /home/juan
-git clone https://aur.archlinux.org/yay.git && cd yay
+git clone https://aur.archlinux.org/yay.git && chmod -R 777 yay && cd yay
 # makepkg -si --noconfirm && yay -S pamac-aur --noconfirm
 
 # Install icons - https://github.com/erikdubois/ArchXfce4
