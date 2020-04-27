@@ -101,7 +101,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay
 # Install icons - https://github.com/erikdubois/ArchXfce4
 cd /home/juan
 git clone https://github.com/erikdubois/ArchXfce4.git
-cd ArchXcfe4/installation
+cd /home/juan/ArchXcfe4/installation
 ./300-install-themes-icons-cursors-conky-v1.sh
 
 echo "Configuration done. You can now exit chroot."
