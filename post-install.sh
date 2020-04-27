@@ -43,7 +43,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # Install xfce
 pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
 lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper variety screenfetch breeze-gtk kde-gtk-config \
-plank user-manager conky conky-manager --noconfirm
+plank user-manager conky --noconfirm
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
 
