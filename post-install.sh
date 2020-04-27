@@ -70,7 +70,6 @@ print-manager smbclient variety screenfetch chromium breeze-gtk kde-gtk-config a
 libreoffice-fresh-es gwenview vlc gimp network-manager-applet libmythes mythes-en mythes-es ttf-liberation hunspell \
 hunspell-en_GB hunspell-es_co adobe-source-sans-pro-fonts  thunderbird user-manager kdeconnect sddm gparted htop \
 xfce4-taskmanager gnome-disk-utility lightdm-gtk-greeter-settings xfce4-whiskermenu-plugin plank archlinux-wallpaper \
-
 --noconfirm
 
 # Install icons - https://github.com/erikdubois/ArchXfce4
