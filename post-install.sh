@@ -53,7 +53,7 @@ gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl volumeicon --noconfi
 
 # Install system support
 pacman -S networkmanager network-manager-applet nvidia-lts nvidia xf86-video-amdgpu wget curl git gvfs gvfs-smb sshfs \
-smbclient gparted gnome-disk-utility htop kdeconnect openssh pamac-aur ark --noconfirm
+smbclient gparted gnome-disk-utility htop kdeconnect openssh ark --noconfirm
 
 # Install vm support
 pacman -S qemu-guest-agent virtualbox-guest-utils --noconfirm
@@ -70,7 +70,7 @@ pacman -S awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts not
 ttf-droid ttf-hack ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font --noconfirm
 
 # Install media
-pacman -S gwenview vlc gimp --noconfirm
+pacman -S gwenview vlc gimp chromium --noconfirm
 
 # Remove libreoffice logo
 sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
@@ -92,6 +92,11 @@ echo '/swapfile none swap sw 0 0' >> /etc/fstab
 systemctl enable NetworkManager.service
 systemctl enable sshd.service
 systemctl enable org.cups.cupsd.service
+
+# Install yay & pamac
+cd /home/juan
+git clone https://aur.archlinux.org/yay.git && cd yay
+# makepkg -si --noconfirm && yay -S pamac-aur --noconfirm
 
 # Install icons - https://github.com/erikdubois/ArchXfce4
 cd /home/juan
