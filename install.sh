@@ -78,10 +78,14 @@ mount /dev/${disk}3 /mnt/home
 # Install Arch Linux
 echo "Starting install.."
 echo "Installing Arch Linux" 
-pacstrap -i /mnt base base-devel linux linux-firmware sudo nano  --noconfirm
+pacstrap -i /mnt base base-devel linux linux-firmware sudo nano git --noconfirm
 
 # Generate fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# Install yay & pamac
+git clone https://aur.archlinux.org/yay.git && chmod -R 777 yay && cd yay
+makepkg -si --noconfirm && yay -S pamac-aur --noconfirm
 
 # Copy post-install system configuration scripts to new /root
 cp -rfv post-install.sh /mnt
