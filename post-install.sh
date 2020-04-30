@@ -112,7 +112,7 @@ while true; do
      [1]* ) pacman -S plasma-desktop lightdm breeze-gtk kde-gtk-config xorg xorg-xinit xorg-server \
      archlinux-wallpaper dolphin konsole spectacle yakuake kate --noconfirm
      echo "exec startkde" > ~/.xinitrc 
-     sudo systemctl enable lightdm.service -f; break;;
+     systemctl enable lightdm; break;;
      
      [2]* ) pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
      lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper breeze-gtk plank conky --noconfirm
