@@ -54,7 +54,7 @@ gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl volumeicon --noconfi
 
 # Install system support
 pacman -S networkmanager network-manager-applet nvidia-lts nvidia xf86-video-amdgpu wget curl git gvfs gvfs-smb sshfs \
-smbclient gparted gnome-disk-utility htop kdeconnect openssh ark screenfetch variety user-manager --noconfirm
+smbclient gparted gnome-disk-utility htop kdeconnect openssh ark screenfetch variety user-manager plank --noconfirm
 
 # Install vm support
 pacman -S qemu-guest-agent virtualbox-guest-utils --noconfirm
@@ -123,7 +123,7 @@ while true; do
      systemctl enable lightdm; break;;
      
      [2]* ) pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
-     lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper breeze-gtk plank conky --noconfirm
+     lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper breeze-gtk conky --noconfirm
      echo "exec startxfce4" > ~/.xinitrc
      systemctl enable lightdm; break;;      
      
