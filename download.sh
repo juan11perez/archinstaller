@@ -11,8 +11,8 @@ echo "enter new user name"
 read user
 sed -i "s/juan/$user/g" /root/post-install.sh
 
-read -p 'do you want to mount an unraid share? [y/N]: ' bluetooth
-if [ $bluetooth = 'y' ] || [ $bluetooth = 'Y' ]
+read -p 'do you want to mount an unraid share? [y/N]: ' unraid
+if [ $unraid = 'y' ] || [ $unraid = 'Y' ]
 then 
   sed -i "s/# echo 'documents/echo 'documents/g" /root/post-install.sh
 fi
