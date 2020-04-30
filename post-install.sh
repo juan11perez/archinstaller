@@ -64,7 +64,7 @@ pacman -S system-config-printer cups-pdf cups-pk-helper print-manager --noconfir
 
 # Install office
 pacman -S libreoffice-fresh libreoffice-fresh-en-gb libreoffice-fresh-es libmythes mythes-en mythes-es hunspell \
-hunspell-en_GB hunspell-es_co thunderbird --noconfirm
+hunspell-en_GB hunspell-es_co thunderbird kate --noconfirm
 
 # Install fonts
 pacman -S awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts noto-fonts ttf-bitstream-vera ttf-dejavu \
@@ -100,10 +100,10 @@ git clone https://aur.archlinux.org/yay.git && chmod -R 777 yay && cd yay
 # makepkg -si --noconfirm && yay -S pamac-aur --noconfirm
 
 # Install icons - https://github.com/erikdubois/ArchXfce4
-cd /home/juan
-git clone https://github.com/erikdubois/ArchXfce4.git
-cd /home/juan/ArchXfce4/installation
-./300-install-themes-icons-cursors-conky-v1.sh
+# cd /home/juan
+# git clone https://github.com/erikdubois/ArchXfce4.git
+# cd /home/juan/ArchXfce4/installation
+# ./300-install-themes-icons-cursors-conky-v1.sh
 
 echo "-[Desktop environment]---------------------"
 echo "1: KDE"
@@ -118,7 +118,7 @@ while true; do
   read -p "Do you wish to install a Desktop environment? [1,n] : " ans
   case $ans in
      [1]* ) pacman -S plasma-desktop lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
-     xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake kate --noconfirm
+     xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake --noconfirm
      echo "exec startkde" > ~/.xinitrc 
      systemctl enable lightdm; break;;
      
