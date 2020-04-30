@@ -12,19 +12,17 @@ read user
 sed -i "s/juan/$user/g" /root/post-install.sh
 
 read -p 'do you require bluetooth? [y/N]: ' bluetooth
-if [ $bluetooth = 'y' ] && [ $bluetooth = 'Y' ]
+if [ $bluetooth = 'y' ] or [ $bluetooth = 'Y' ]
 then 
   sed -i "s/# pacman -S pulseaudio-bluetooth/pacman -S pulseaudio-bluetooth/g" /root/post-install.sh
   sed -i "s/# systemctl enable bluetooth.service/systemctl enable bluetooth.service/g" /root/post-install.sh
-  exit
 fi
 
 read -p 'is this a laptop installation? [y/N]: ' laptop
-if [ $laptop = 'y' ] && [ $laptop = 'Y' ]
+if [ $laptop = 'y' ] or [ $laptop = 'Y' ]
 then 
   sed -i "s/# pacman -S tlp/pacman -S tlp/g" /root/post-install.sh
   sed -i "s/# systemctl enable tlp.service/systemctl enable tlp.service/g" /root/post-install.sh
-  exit
 fi
 
 chmod +x *.sh
