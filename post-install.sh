@@ -41,13 +41,12 @@ sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Install bluetooth
-pacman -S pulseaudio-bluetooth bluez bluez-libs bluez-utils blueberry --noconfirm
-systemctl enable bluetooth.service && systemctl start bluetooth.service
-sed -i 's/'#AutoEnable=false'/'AutoEnable=true'/g' /etc/bluetooth/main.conf
+# pacman -S pulseaudio-bluetooth bluez bluez-libs bluez-utils blueberry --noconfirm
+# systemctl enable bluetooth.service && systemctl start bluetooth.service && sed -i 's/'#AutoEnable=false'/'AutoEnable=true'/g' /etc/bluetooth/main.conf
 
 # Install laptop support
-pacman -S tlp --noconfirm
-systemctl enable tlp.service
+# pacman -S tlp --noconfirm
+# systemctl enable tlp.service
 
 # Install sound
 pacman -S pulseaudio pulseaudio-alsa pavucontrol alsa-firmware alsa-lib alsa-plugins alsa-utils gstreamer gst-plugins-good \
