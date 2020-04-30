@@ -72,7 +72,7 @@ sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
 echo 'screenfetch' >> /home/juan/.bashrc
 
 # Uncoment to mount unraid share
-echo 'documents /home/juan/Documents 9p trans=virtio,version=9p2000.L,_netdev,rw 0 0' >> /etc/fstab
+# echo 'documents /home/juan/Documents 9p trans=virtio,version=9p2000.L,_netdev,rw 0 0' >> /etc/fstab
 
 # Install swap file
 fallocate -l 2G /swapfile
@@ -109,8 +109,8 @@ echo "n: don't install any desktop environment"
 while true; do
   read -p "Do you wish to install a Desktop environment? [1,n] : " ans
   case $ans in
-     [1]* ) pacman -S plasma-desktop lightdm breeze-gtk kde-gtk-config xorg xorg-xinit xorg-server \
-     archlinux-wallpaper dolphin konsole spectacle yakuake kate --noconfirm
+     [1]* ) pacman -S plasma-desktop lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
+     xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake kate --noconfirm
      echo "exec startkde" > ~/.xinitrc 
      systemctl enable lightdm; break;;
      
