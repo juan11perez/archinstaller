@@ -98,8 +98,8 @@ cd /home/juan/ArchXfce4/installation
 ./300-install-themes-icons-cursors-conky-v1.sh
 
 echo "-[Desktop environment]---------------------"
-echo "1: XFCE"
-echo "2: KDE"
+echo "1: KDE"
+echo "2: XFCE"
 # echo "3: GNOME"
 # echo "4: CINNAMON"
 # echo "5: MATE"
