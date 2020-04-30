@@ -40,20 +40,13 @@ grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi 
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# Install xfce
-pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
-lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper variety breeze-gtk kde-gtk-config \
-plank user-manager conky --noconfirm
-echo "exec startxfce4" > ~/.xinitrc
-systemctl enable lightdm
-
 # Install sound
 pacman -S pulseaudio pulseaudio-alsa pavucontrol alsa-firmware alsa-lib alsa-plugins alsa-utils gstreamer gst-plugins-good \
 gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl volumeicon --noconfirm
 
 # Install system support
 pacman -S networkmanager network-manager-applet nvidia-lts nvidia xf86-video-amdgpu wget curl git gvfs gvfs-smb sshfs \
-smbclient gparted gnome-disk-utility htop kdeconnect openssh ark screenfetch --noconfirm
+smbclient gparted gnome-disk-utility htop kdeconnect openssh ark screenfetch variety user-manager --noconfirm
 
 # Install vm support
 pacman -S qemu-guest-agent virtualbox-guest-utils --noconfirm
@@ -104,4 +97,31 @@ git clone https://github.com/erikdubois/ArchXfce4.git
 cd /home/juan/ArchXfce4/installation
 ./300-install-themes-icons-cursors-conky-v1.sh
 
-echo "Configuration done. You can now exit chroot."
+echo "-[Desktop environment]---------------------"
+echo "1: XFCE"
+echo "2: KDE"
+# echo "3: GNOME"
+# echo "4: CINNAMON"
+# echo "5: MATE"
+# echo "6: "
+echo "n: don't install any desktop environment"
+
+while true; do
+  read -p "Do you wish to install a Desktop environment? [1,n] : " ans
+  case $ans in
+     [1]* ) pacman -S plasma-desktop lightdm breeze-gtk breeze-kde4 kde-gtk-config xorg xorg-xinit xorg-server \
+     archlinux-wallpaper dolphin konsole spectacle yakuake kate --noconfirm
+     echo "exec startkde" > ~/.xinitrc sudo systemctl enable lightdm.service -f; break;;
+     
+     [2]* ) pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
+     lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper breeze-gtk plank conky --noconfirm
+     echo "exec startxfce4" > ~/.xinitrc
+     systemctl enable lightdm; break;;      
+     
+#      [3]* ) /scripts/de-gnome.sh; break;;
+    [Nn]* ) exit;;
+  esac
+done
+echo "------------------------------------------------"
+echo "type 'reboot' to restart your system"
+exit
