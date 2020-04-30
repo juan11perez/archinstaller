@@ -42,7 +42,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # Install xfce
 pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
-lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper variety screenfetch breeze-gtk kde-gtk-config \
+lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper variety breeze-gtk kde-gtk-config \
 plank user-manager conky --noconfirm
 echo "exec startxfce4" > ~/.xinitrc
 systemctl enable lightdm
@@ -53,7 +53,7 @@ gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl volumeicon --noconfi
 
 # Install system support
 pacman -S networkmanager network-manager-applet nvidia-lts nvidia xf86-video-amdgpu wget curl git gvfs gvfs-smb sshfs \
-smbclient gparted gnome-disk-utility htop kdeconnect openssh ark --noconfirm
+smbclient gparted gnome-disk-utility htop kdeconnect openssh ark screenfetch --noconfirm
 
 # Install vm support
 pacman -S qemu-guest-agent virtualbox-guest-utils --noconfirm
