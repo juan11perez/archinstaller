@@ -109,7 +109,7 @@ echo "n: don't install any desktop environment"
 while true; do
   read -p "Do you wish to install a Desktop environment? [1,n] : " ans
   case $ans in
-     [1]* ) pacman -S plasma-desktop lightdm breeze-gtk breeze-kde4 kde-gtk-config xorg xorg-xinit xorg-server \
+     [1]* ) pacman -S plasma-desktop lightdm breeze-gtk kde-gtk-config xorg xorg-xinit xorg-server \
      archlinux-wallpaper dolphin konsole spectacle yakuake kate --noconfirm
      echo "exec startkde" > ~/.xinitrc sudo systemctl enable lightdm.service -f; break;;
      
