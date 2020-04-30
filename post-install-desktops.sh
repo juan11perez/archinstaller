@@ -40,13 +40,6 @@ grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi 
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# Install xfce
-pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
-lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper variety breeze-gtk kde-gtk-config \
-plank user-manager conky --noconfirm
-echo "exec startxfce4" > ~/.xinitrc
-systemctl enable lightdm
-
 # Install sound
 pacman -S pulseaudio pulseaudio-alsa pavucontrol alsa-firmware alsa-lib alsa-plugins alsa-utils gstreamer gst-plugins-good \
 gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl volumeicon --noconfirm
@@ -108,10 +101,10 @@ cd /home/juan/ArchXfce4/installation
 echo "-[Desktop environment]---------------------"
 echo "1: XFCE"
 echo "2: KDE"
-#echo "3: GNOME"
-#echo "4: CINNAMON"
-#echo "5: MATE"
-#echo "6: "
+# echo "3: GNOME"
+# echo "4: CINNAMON"
+# echo "5: MATE"
+# echo "6: "
 echo "n: don't install any desktop environment"
 
 
@@ -120,17 +113,11 @@ while true; do
   case $ans in
      [1]* ) /scripts/de-xfce.sh; break;;
      [2]* ) /scripts/de-kde.sh; break;;     
-     [3]* ) /scripts/de-gnome.sh; break;;
+#      [3]* ) /scripts/de-gnome.sh; break;;
     [Nn]* ) exit;;
   esac
 done
 echo "------------------------------------------------"
 echo "type 'reboot' to restart your system"
 exit
-© 2020 GitHub, Inc
 
-
-
-
-
-echo "Configuration done. You can now exit chroot."
