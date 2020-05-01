@@ -118,7 +118,8 @@ while true; do
   read -p "Do you wish to install a Desktop environment? [1,n] : " ans
   case $ans in
      [1]* ) pacman -S plasma-desktop lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
-     xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake plasma-browser-integration --noconfirm
+     xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake plasma-browser-integration \
+     kwalletmanager --noconfirm
      echo "exec startkde" > ~/.xinitrc 
      systemctl enable lightdm; break;;
      
