@@ -119,7 +119,7 @@ while true; do
   case $ans in
      [1]* ) pacman -S plasma-desktop lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
      xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake plasma-browser-integration \
-     kwalletmanager --noconfirm
+     kwalletmanager qt5-xmlpatterns --noconfirm
      echo "exec startkde" > ~/.xinitrc 
      systemctl enable lightdm; break;;
      
