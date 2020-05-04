@@ -65,7 +65,7 @@ pacman -S system-config-printer cups-pdf cups-pk-helper print-manager --noconfir
 
 # Install office
 pacman -S libreoffice-fresh libreoffice-fresh-en-gb libreoffice-fresh-es libmythes mythes-en mythes-es hunspell \
-hunspell-en_GB hunspell-es_co thunderbird kate --noconfirm
+hunspell-en_GB hunspell-es_co thunderbird kate gnome-calculator --noconfirm
 
 # Install fonts
 pacman -S awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts noto-fonts ttf-bitstream-vera ttf-dejavu \
