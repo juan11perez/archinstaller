@@ -55,7 +55,7 @@ gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl volumeicon --noconfi
 # Install system support
 pacman -S networkmanager network-manager-applet nvidia-lts nvidia xf86-video-amdgpu wget curl git gvfs gvfs-smb sshfs \
 smbclient gparted gnome-disk-utility htop kdeconnect openssh ark screenfetch variety user-manager plank wireguard-lts \
-wireguard-tools --noconfirm
+wireguard-tools vsftpd --noconfirm
 
 # Install vm support
 pacman -S qemu-guest-agent virtualbox-guest-utils --noconfirm
@@ -76,6 +76,11 @@ pacman -S gwenview vlc gimp chromium --noconfirm
 
 # Remove libreoffice logo
 sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
+
+# Activate ftp server upload/download
+sed -i 's/#write_enable=YES/write_enable=YES/g' /etc/vsftpd.conf
+sed -i 's/#local_enable=YES/local_enable=YES/g' /etc/vsftpd.conf
+sudo systemctl enable vsftpd.service
 
 # Auto-start screenfetch in terminal
 echo 'screenfetch' >> /home/juan/.bashrc
