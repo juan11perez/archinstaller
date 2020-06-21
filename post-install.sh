@@ -89,11 +89,11 @@ echo 'screenfetch' >> /home/juan/.bashrc
 # echo 'documents /home/juan/Documents 9p trans=virtio,version=9p2000.L,_netdev,rw 0 0' >> /etc/fstab
 
 # Install swap file
-fallocate -l 2G /swapfile
+dd if=/dev/zero of=/swapfile bs=1M count=1024 status=progress
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-echo '/swapfile none swap sw 0 0' >> /etc/fstab
+echo '/swapfile none swap defaults 0 0' >> /etc/fstab
 
 # Enable services
 systemctl enable NetworkManager.service
