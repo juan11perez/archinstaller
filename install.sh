@@ -44,7 +44,7 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/$disk
   p # primary partition
   2 # partion number 2
     # default, start immediately after preceding partition
-  +20G # 20 GB root parttion
+  +40G # 20 GB root parttion
   n # new partition
   p # primary partition
   3 # partion number 3
