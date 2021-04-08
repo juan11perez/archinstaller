@@ -22,7 +22,7 @@ reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 # Filesystem mount warning
 echo "This script will create and format the partitions as follows:"
 echo "/dev/vda1 - 512Mib will be mounted as /boot/efi"
-echo "/dev/vda2 - 20GiB will be used as root"
+echo "/dev/vda2 - 40GiB will be used as root"
 echo "/dev/vda3 - rest of space will be mounted as home"
 read -p 'Continue? [y/N]: ' fsok
 if ! [ $fsok = 'y' ] && ! [ $fsok = 'Y' ]
