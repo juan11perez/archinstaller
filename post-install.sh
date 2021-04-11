@@ -55,9 +55,8 @@ pacman -S pulseaudio pulseaudio-alsa pavucontrol alsa-firmware alsa-lib alsa-plu
 gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl volumeicon --noconfirm
 
 # Install system support
-pacman -S networkmanager network-manager-applet nvidia-lts nvidia xf86-video-amdgpu wget curl git gvfs gvfs-smb sshfs \
-smbclient gparted gnome-disk-utility htop kdeconnect openssh ark screenfetch variety user-manager plank wireguard-lts \
-wireguard-tools vsftpd zip --noconfirm
+pacman -S networkmanager network-manager-applet nvidia xf86-video-amdgpu wget curl git gvfs gvfs-smb sshfs \
+smbclient gparted openssh screenfetch variety wireguard-tools vsftpd zip --noconfirm
 
 # Install vm support
 pacman -S qemu-guest-agent virtualbox-guest-utils --noconfirm
@@ -70,11 +69,11 @@ pacman -S libreoffice-fresh libreoffice-fresh-en-gb libreoffice-fresh-es libmyth
 hunspell-en_GB hunspell-es_co thunderbird kate gnome-calculator --noconfirm
 
 # Install fonts
-pacman -S awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts noto-fonts ttf-bitstream-vera ttf-dejavu \
-ttf-droid ttf-hack ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font --noconfirm
+# pacman -S awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts noto-fonts ttf-bitstream-vera ttf-dejavu \
+# ttf-droid ttf-hack ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font --noconfirm
 
 # Install media
-pacman -S gwenview vlc gimp chromium --noconfirm
+pacman -S gwenview vlc gimp --noconfirm
 
 # Remove libreoffice logo
 sed -i 's/Logo=1/Logo=0/g' /etc/libreoffice/sofficerc
@@ -125,18 +124,25 @@ echo "n: don't install any desktop environment"
 while true; do
   read -p "Do you wish to install a Desktop environment? [1,n] : " ans
   case $ans in
-     [1]* ) pacman -S plasma-meta lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
-     xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake plasma-browser-integration \
-     kwalletmanager qt5-xmlpatterns --noconfirm
-     # echo "exec startkde" > ~/.xinitrc 
+     [1]* ) pacman -S xorg xorg-xinit xorg-server plasma-meta kde-applications sddm --noconfirm
      echo "export DESKTOP_SESSION=plasma" >> ~/.xinitrc 
      echo "exec startplasma-x11" >> ~/.xinitrc 
-     systemctl enable lightdm; break;;
+     systemctl enable sddm; break;;
      
      [2]* ) pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
      lightdm-gtk-greeter-settings xorg xorg-xinit xorg-server archlinux-wallpaper breeze-gtk conky --noconfirm
      echo "exec startxfce4" > ~/.xinitrc
      systemctl enable lightdm; break;;      
+     
+#      [3]* ) pacman -S plasma-meta lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
+#      xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake plasma-browser-integration \
+#      kwalletmanager qt5-xmlpatterns --noconfirm
+#      # echo "exec startkde" > ~/.xinitrc 
+#      echo "export DESKTOP_SESSION=plasma" >> ~/.xinitrc 
+#      echo "exec startplasma-x11" >> ~/.xinitrc 
+#      systemctl enable lightdm; break;;     
+     
+     
      
 #      [3]* ) /scripts/de-gnome.sh; break;;
     [Nn]* ) exit;;
