@@ -18,7 +18,9 @@ echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 
 # Set hostname
 echo "archlinux" >> /etc/hostname
-echo "127.0.1.1 localhost.localdomain archlinux" >> /etc/hosts
+echo "127.0.1.1 localhost" >> /etc/hosts
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
 
 # Generate initramfs
 mkinitcpio -P
@@ -123,10 +125,12 @@ echo "n: don't install any desktop environment"
 while true; do
   read -p "Do you wish to install a Desktop environment? [1,n] : " ans
   case $ans in
-     [1]* ) pacman -S plasma-desktop lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
+     [1]* ) pacman -S plasma-meta lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings breeze-gtk kde-gtk-config \
      xorg xorg-xinit xorg-server archlinux-wallpaper dolphin konsole spectacle yakuake plasma-browser-integration \
      kwalletmanager qt5-xmlpatterns --noconfirm
-     echo "exec startkde" > ~/.xinitrc 
+     # echo "exec startkde" > ~/.xinitrc 
+     echo "export DESKTOP_SESSION=plasma" >> ~/.xinitrc 
+     echo "exec startplasma-x11" >> ~/.xinitrc 
      systemctl enable lightdm; break;;
      
      [2]* ) pacman -S xfce4 xfce4-goodies xfce4-taskmanager xfce4-whiskermenu-plugin lightdm lightdm-gtk-greeter \
