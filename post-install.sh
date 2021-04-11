@@ -99,7 +99,7 @@ echo '/swapfile none swap defaults 0 0' >> /etc/fstab
 # Enable services
 systemctl enable NetworkManager.service
 systemctl enable sshd.service
-systemctl enable org.cups.cupsd.service
+systemctl enable cups.service
 
 # Install yay & pamac
 cd /home/juan
